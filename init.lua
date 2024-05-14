@@ -55,7 +55,7 @@ now(function()
   map('n', 'q', '<nop>')
   map('n', '<leader>tw', '<cmd>set wrap!<cr>')
   map('n', '<leader>tn', '<cmd>set relativenumber!<cr>')
-  map('n', '<M-m>', '<cmd>MarkdownPreview<cr>')
+  map('n', '<A-m>', '<cmd>MarkdownPreview<cr>')
 end)
 
 -- options
@@ -428,15 +428,11 @@ now(function()
     },
   }
 end)
-
 now(function()
   add {
     source = 'iamcco/markdown-preview.nvim',
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-    build = 'cd app && yarn install',
-    init = function()
-      vim.g.mkdp_filetypes = { 'markdown' }
-    end,
     ft = { 'markdown' },
   }
+vim.fn['mkdp#util#install']()
 end)
