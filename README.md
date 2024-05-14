@@ -54,7 +54,7 @@ Move-Item $ENV:LOCALAPPDATA\nvim-data $ENV:LOCALAPPDATA\nvim-data.bak
 It's gonna do a lot of stuff, give it some time.
 
 ```
-git clone https://github.com/DDTully/kickstart.nvim.git $ENV:LOCALAPPDATA\nvim
+git clone https://github.com/DDTully/kickstart.nvim.mini.git $ENV:LOCALAPPDATA\nvim
 remove-Item $env:LOCALAPPDATA\nvim\.git -Recurse -Force
 Install-Module PSScriptAnalyzer -force
 nvim
