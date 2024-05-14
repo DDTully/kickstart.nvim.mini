@@ -17,7 +17,6 @@ Install Neovim and additional dependencies
 
 ```
 choco install fd ripgrep ripgrep-all make mingw nodejs gzip unzip 7zip wget git python3 python3-virtualenv nerd-fonts-Hack powershell-core neovim -y
-npm install -g yarn
 
 ```
 
@@ -56,6 +55,7 @@ It's gonna do a lot of stuff, give it some time.
 ```
 git clone https://github.com/DDTully/kickstart.nvim.mini.git $ENV:LOCALAPPDATA\nvim
 remove-Item $env:LOCALAPPDATA\nvim\.git -Recurse -Force
+npm install -g yarn
 Install-Module PSScriptAnalyzer -force
 nvim
 
