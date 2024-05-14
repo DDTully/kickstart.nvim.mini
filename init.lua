@@ -187,8 +187,6 @@ now(function()
   vim.list_extend(ensure_installed, {
     { 'lua_ls', version = '3.8.3' },
     'stylua', -- Used to format Lua code
-    'isort',
-    'black',
     'powershell_es',
     'prettier',
   })
@@ -211,7 +209,6 @@ now(function()
       enableProfileLoading = false,
     },
   }
-  require('lspconfig').pyright.setup {}
 end)
 
 -- conform
@@ -231,7 +228,6 @@ now(function()
     formatters_by_ft = {
       lua = { 'stylua' },
       -- Conform can also run multiple formatters sequentially
-      python = { 'isort', 'black' },
       css = { 'prettier' },
       html = { 'prettier' },
       json = { 'prettier' },
@@ -252,21 +248,10 @@ end)
 -- one liners
 now(function()
   require('mini.ai').setup()
-  require('mini.align').setup()
-  require('mini.bracketed').setup()
   require('mini.bufremove').setup()
-  require('mini.cursorword').setup()
-  require('mini.diff').setup()
-  require('mini.doc').setup()
-  require('mini.colors').setup()
   require('mini.comment').setup()
   require('mini.surround').setup()
   require('mini.tabline').setup()
-  require('mini.trailspace').setup()
-  require('mini.visits').setup()
-  require('mini.map').setup()
-  require('mini.misc').setup()
-  require('mini.move').setup()
   require('mini.operators').setup()
   require('mini.pairs').setup()
   require('mini.splitjoin').setup()
@@ -318,33 +303,6 @@ now(function()
     window = {
       info = { border = 'rounded' },
       signature = { border = 'rounded' },
-    },
-  }
-end)
-
--- mini-pick
-now(function()
-  local win_config = function()
-    height = math.floor(0.618 * vim.o.lines)
-    width = math.floor(0.618 * vim.o.columns)
-    return {
-      anchor = 'NW',
-      height = height,
-      width = width,
-      border = 'rounded',
-      row = math.floor(0.5 * (vim.o.lines - height)),
-      col = math.floor(0.5 * (vim.o.columns - width)),
-    }
-  end
-  require('mini.pick').setup {
-    mappings = {
-      choose_in_vsplit = '<C-CR>',
-    },
-    options = {
-      use_cache = true,
-    },
-    window = {
-      config = win_config,
     },
   }
 end)
@@ -434,5 +392,5 @@ now(function()
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
     ft = { 'markdown' },
   }
-vim.fn['mkdp#util#install']()
+  vim.fn['mkdp#util#install']()
 end)
