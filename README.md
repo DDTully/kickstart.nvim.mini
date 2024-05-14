@@ -55,7 +55,6 @@ It's gonna do a lot of stuff, give it some time.
 ```
 git clone https://github.com/DDTully/kickstart.nvim.mini.git $ENV:LOCALAPPDATA\nvim
 remove-Item $env:LOCALAPPDATA\nvim\.git -Recurse -Force
-npm install -g yarn
 Install-Module PSScriptAnalyzer -force
 nvim
 
