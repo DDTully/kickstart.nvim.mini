@@ -18,7 +18,7 @@ iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocola
 Install Neovim and additional dependencies
 
 ```pwsh
-choco install fd ripgrep ripgrep-all make mingw nodejs gzip unzip 7zip wget git `
+choco install fd ripgrep ripgrep-all make mingw nodejs gzip 7zip wget git `
 python3 python3-virtualenv nerd-fonts-Hack powershell-core neovim -y
 
 ```
