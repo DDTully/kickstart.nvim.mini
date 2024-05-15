@@ -27,7 +27,7 @@ Close the elevated Windows Terminal session and open a standard terminal session
 ![image](https://github.com/DDTully/kickstart.nvim/assets/165563299/410b2726-7269-4532-a59c-ab60db9a61ff)
 
 This would be a great time to set Windows Terminal as your default terminal application,
-Powershell 7 as your default profile, and change the font.
+set Powershell 7 as your default profile, and change the font.
 
 Hit CTRL-, to open settings, set the following options in Startup
 
