@@ -47,7 +47,7 @@ vim.keymap.set('n', 'q', '<nop>')
 vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<cr>')
 vim.keymap.set('n', '<leader>tn', '<cmd>set relativenumber!<cr>')
 vim.keymap.set('n', '<A-m>', '<cmd>MarkdownPreview<cr>')
-vim.keymap.set('n', '<space>fb', ':Telescope file_browser path=%:p:h select_buffer=true<CR>' { silent = true })
+vim.keymap.set('n', '<space>fb', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', { silent = true })
 
 -- options
 vim.g.have_nerd_font = true
