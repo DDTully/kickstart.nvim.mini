@@ -1,6 +1,6 @@
 # kickstart.nvim
 
-### Install dependencies
+## Install dependencies
 
 Open terminal as administrator
 
@@ -8,15 +8,18 @@ Open terminal as administrator
 
 Install Chocolately
 
-```
-Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+```pwsh
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]`
+::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;`
+iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
 ```
 
 Install Neovim and additional dependencies
 
-```
-choco install fd ripgrep ripgrep-all make mingw nodejs gzip unzip 7zip wget git python3 python3-virtualenv nerd-fonts-Hack powershell-core neovim -y
+```pwsh
+choco install fd ripgrep ripgrep-all make mingw nodejs gzip unzip 7zip wget git `
+python3 python3-virtualenv nerd-fonts-Hack powershell-core neovim -y
 
 ```
 
@@ -24,7 +27,8 @@ Close the elevated Windows Terminal session and open a standard terminal session
 
 ![image](https://github.com/DDTully/kickstart.nvim/assets/165563299/410b2726-7269-4532-a59c-ab60db9a61ff)
 
-This would be a great time to set Windows Terminal as your default terminal application, Powershell 7 as your default profile, and change the font.
+This would be a great time to set Windows Terminal as your default terminal application,
+Powershell 7 as your default profile, and change the font.
 
 Hit CTRL-, to open settings, set the following options in Startup
 
@@ -40,22 +44,23 @@ Reopen Terminal, you should see something similar to below
 
 ![image](https://github.com/DDTully/kickstart.nvim/assets/165563299/5043c91f-9cb0-481d-ba0f-b6dd9fcc5950)
 
-### Back up existing Neovim config if needed
+## Back up existing Neovim config if needed
 
-```
+```pwsh
 Move-Item $ENV:LOCALAPPDATA\nvim $ENV:LOCALAPPDATA\nvim.bak
 Move-Item $ENV:LOCALAPPDATA\nvim-data $ENV:LOCALAPPDATA\nvim-data.bak
 
 ```
 
-### Clone repository, install PSScriptAnalyzer, and start nvim for the first time
+## Clone repository, install PSScriptAnalyzer, and start nvim for the first time
 
 It's gonna do a lot of stuff, give it some time.
 
-```
+```pwsh
 git clone https://github.com/DDTully/kickstart.nvim.mini.git $ENV:LOCALAPPDATA\nvim
 remove-Item $env:LOCALAPPDATA\nvim\.git -Recurse -Force
 Install-Module PSScriptAnalyzer -force
+npm install -g yarn
 nvim
 
 ```
