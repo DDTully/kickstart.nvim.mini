@@ -46,6 +46,8 @@ vim.keymap.set('n', '<F6>', vim.cmd.UndotreeFocus)
 vim.keymap.set('n', 'q', '<nop>')
 vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<cr>')
 vim.keymap.set('n', '<leader>tn', '<cmd>set relativenumber!<cr>')
+vim.keymap.set('n', '<leader>tc', '<cmd>Telescope colorscheme<cr>')
+vim.keymap.set('n', '<leader>ts', '<cmd>set spell!<cr>')
 vim.keymap.set('n', '<A-m>', '<cmd>MarkdownPreview<cr>')
 vim.keymap.set('n', '<space>fb', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', { silent = true })
 
@@ -374,14 +376,17 @@ require('lazy').setup({
       }
     end,
   },
-  {
-    'folke/tokyonight.nvim',
-    priority = 1000,
-    init = function()
-      vim.cmd.colorscheme 'tokyonight-night'
-      vim.cmd.hi 'Comment gui=none'
-    end,
-  },
+  { 'folke/tokyonight.nvim' },
+  { 'Mofiqul/vscode.nvim' },
+  { 'ellisonleao/gruvbox.nvim' },
+  { 'projekt0n/github-nvim-theme' },
+  { 'marko-cerovac/material.nvim' },
+  { 'Shatur/neovim-ayu' },
+  { 'rose-pine/neovim' },
+  { 'EdenEast/nightfox.nvim' },
+  { 'dasupradyumna/midnight.nvim' },
+  { 'olimorris/onedarkpro.nvim' },
+  { 'HoNamDuong/hybrid.nvim' },
   {
     'echasnovski/mini.nvim',
     config = function()
@@ -432,11 +437,10 @@ require('lazy').setup({
   {
     'iamcco/markdown-preview.nvim',
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
-    build = 'cd app && yarn install',
-    init = function()
-      vim.g.mkdp_filetypes = { 'markdown' }
-    end,
     ft = { 'markdown' },
+    build = function()
+      vim.fn['mkdp#util#install']()
+    end,
   },
 }, {
   ui = {
