@@ -84,7 +84,7 @@ vim.opt.hlsearch = true
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
 vim.opt.background = 'dark'
-vim.opt.ffs = 'dos'
+
 
 -- autocmds
 vim.api.nvim_create_autocmd('TextYankPost', {
