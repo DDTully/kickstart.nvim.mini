@@ -47,7 +47,7 @@ source ~/.bashrc
 sudo npm install -g yarn
 sudo npm install -g neovim
 python3 -m pip install --user --upgrade pynvim
-git clone https://github.com/DDTully/kickstart.nvim.mini.git ~/.config/nvim
+git clone https://github.com/DDTully/kickstart.wsl.git ~/.config/nvim
 nvim
 
 ```
