@@ -11,9 +11,10 @@ wsl --install -d Ubuntu
 
 Create your user and password
 
-Remove Windows paths from WSL config
+Modify Windows Paths
 
 ```
+echo "export PATH=$PATH:/mnt/c/Windows/System32/" | tee .bashrc
 echo "
 [interop]
 appendWindowsPath = false" | sudo tee -a /etc/wsl.conf
