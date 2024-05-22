@@ -29,7 +29,7 @@ wsl -d Ubuntu
 
 ```
 cd ~
-echo "export PATH=$PATH:/mnt/c/Windows/System32/" | tee .bashrc
+echo "export PATH=$PATH:/mnt/c/Windows/System32/" | tee -a .bashrc
 source .bashrc
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt update
