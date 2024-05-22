@@ -31,7 +31,7 @@ wsl -d Ubuntu
 cd ~
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt update
-sudo apt install -y make gcc ripgrep fd-find unzip git xclip neovim python3 python3-venv python3-pip nodejs npm
+sudo apt install -y make gcc ripgrep fd-find unzip git xclip neovim python3 python3-venv python3-pip nodejs npm wslu
 sudo apt-get install -y wget apt-transport-https software-properties-common
 source /etc/os-release
 wget -q https://packages.microsoft.com/config/ubuntu/$VERSION_ID/packages-microsoft-prod.deb
