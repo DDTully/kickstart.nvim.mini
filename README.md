@@ -14,7 +14,6 @@ Create your user and password
 Modify Windows Paths
 
 ```
-echo "export PATH=$PATH:/mnt/c/Windows/System32/" | tee .bashrc
 echo "
 [interop]
 appendWindowsPath = false" | sudo tee -a /etc/wsl.conf
@@ -30,6 +29,8 @@ wsl -d Ubuntu
 
 ```
 cd ~
+echo "export PATH=$PATH:/mnt/c/Windows/System32/" | tee .bashrc
+source .bashrc
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt update
 sudo apt install -y make gcc ripgrep fd-find unzip git xclip neovim python3 python3-venv python3-pip nodejs npm wslu
