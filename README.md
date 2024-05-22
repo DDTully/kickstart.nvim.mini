@@ -5,6 +5,28 @@
 Install WSL
 
 ```
+wsl --install -d Ubuntu
+
+
+```
+
+Create your user and password
+
+Remove Windows paths from WSL config
+
+```
+echo "
+[interop]
+appendWindowsPath = false" | sudo tee -a /etc/wsl.conf
+
+exit
+wslconfig /t Ubuntu
+wsl -d Ubuntu
+cd ~
+
+```
+
+```
 sudo add-apt-repository ppa:neovim-ppa/unstable -y
 sudo apt update
 sudo apt install -y make gcc ripgrep fd-find unzip git xclip neovim python3 python3-venv python3-pip nodejs npm
