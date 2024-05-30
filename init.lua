@@ -11,7 +11,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   }
 end
 vim.opt.rtp:prepend(lazypath)
-
+-- ──────────────────────────────────────────────────────────────────────
 -- keymaps
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -52,7 +52,9 @@ vim.keymap.set('n', '<leader>tc', '<cmd>Telescope colorscheme<cr>')
 vim.keymap.set('n', '<leader>ts', '<cmd>set spell!<cr>')
 vim.keymap.set('n', '<A-m>', '<cmd>MarkdownPreview<cr>')
 vim.keymap.set('n', '<space>fb', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', { silent = true })
-
+vim.keymap.set({ 'n', 'v' }, '<leader>cb', '<cmd>CBccbox<cr>') -- Box
+vim.keymap.set({ 'n', 'v' }, '<leader>cl', '<cmd>CBline<cr>') -- Line
+vim.keymap.set({ 'n', 'v' }, '<leader>cd', '<cmd>CBd<cr>') -- Delete
 -- options
 vim.g.have_nerd_font = true
 vim.g.undotree_CustomUndotreeCmd = 'vertical 40 new'
@@ -487,13 +489,13 @@ require('lazy').setup({
   },
   {
     'folke/noice.nvim',
-    event = 'VeryLazy',
     opts = {},
     dependencies = {
       'MunifTanjim/nui.nvim',
       'rcarriga/nvim-notify',
     },
   },
+  { 'LudoPinelli/comment-box.nvim' },
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
