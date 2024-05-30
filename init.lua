@@ -85,7 +85,7 @@ vim.opt.hlsearch = true
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = true
 vim.opt.background = 'dark'
-
+vim.opt.showtabline = 2
 
 -- autocmds
 vim.api.nvim_create_autocmd('TextYankPost', {
@@ -452,13 +452,6 @@ require('lazy').setup({
     config = function()
       require('mini.ai').setup { n_lines = 500 }
       require('mini.surround').setup()
-      local statusline = require 'mini.statusline'
-      statusline.setup { use_icons = vim.g.have_nerd_font }
-      ---@diagnostic disable-next-line: duplicate-set-field
-      statusline.section_location = function()
-        return '%2l:%-2v'
-      end
-      require('mini.tabline').setup()
       require('mini.bufremove').setup()
     end,
   },
@@ -488,6 +481,23 @@ require('lazy').setup({
       vim.fn['mkdp#util#install']()
     end,
   },
+    {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    opts = { options = { theme = 'codedark' } },
+  },
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim',
+      'nvim-tree/nvim-web-devicons',
+    },
+    init = function()
+      vim.g.barbar_auto_setup = false
+    end,
+    opts = {},
+    version = '^1.0.0',
+  },  
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
