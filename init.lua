@@ -28,6 +28,7 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 vim.keymap.set('n', ';', ':', { desc = 'CMD enter command mode' })
 vim.keymap.set('i', 'jk', '<ESC>')
 vim.keymap.set('n', '<F2>', ':%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>')
+vim.keymap.set('n', '<C-a>', 'ggVG')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
@@ -173,7 +174,7 @@ require('lazy').setup({
       end, { desc = '[S]earch [N]eovim files' })
     end,
   },
-{ -- Highlight, edit, and navigate code
+  { -- Highlight, edit, and navigate code
     'nvim-treesitter/nvim-treesitter',
     build = ':TSUpdate',
     opts = {
@@ -481,7 +482,7 @@ require('lazy').setup({
       vim.fn['mkdp#util#install']()
     end,
   },
-    {
+  {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     opts = { options = { theme = 'codedark' } },
@@ -497,7 +498,7 @@ require('lazy').setup({
     end,
     opts = {},
     version = '^1.0.0',
-  },  
+  },
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
