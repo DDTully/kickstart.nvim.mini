@@ -485,6 +485,15 @@ require('lazy').setup({
     opts = {},
     version = '^1.0.0',
   },
+  {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    opts = {},
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+      'rcarriga/nvim-notify',
+    },
+  },
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
