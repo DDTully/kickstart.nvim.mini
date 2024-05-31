@@ -11,7 +11,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   }
 end
 vim.opt.rtp:prepend(lazypath)
--- ──────────────────────────────────────────────────────────────────────
+
 -- keymaps
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -55,6 +55,7 @@ vim.keymap.set('n', '<space>fb', ':Telescope file_browser path=%:p:h select_buff
 vim.keymap.set({ 'n', 'v' }, '<leader>cb', '<cmd>CBccbox<cr>') -- Box
 vim.keymap.set({ 'n', 'v' }, '<leader>cl', '<cmd>CBline<cr>') -- Line
 vim.keymap.set({ 'n', 'v' }, '<leader>cd', '<cmd>CBd<cr>') -- Delete
+
 -- options
 vim.g.have_nerd_font = true
 vim.g.undotree_CustomUndotreeCmd = 'vertical 40 new'
@@ -486,14 +487,6 @@ require('lazy').setup({
     end,
     opts = {},
     version = '^1.0.0',
-  },
-  {
-    'folke/noice.nvim',
-    opts = {},
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      'rcarriga/nvim-notify',
-    },
   },
   { 'LudoPinelli/comment-box.nvim' },
 }, {
