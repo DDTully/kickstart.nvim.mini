@@ -31,14 +31,10 @@ vim.keymap.set('n', '<F2>', ':%s/<C-r><C-w>/<C-r><C-w>/gI<Left><Left><Left>')
 vim.keymap.set('n', '<C-a>', 'ggVG')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
-vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
-vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
 vim.keymap.set('n', '<leader>Y', [["+Y]])
 vim.keymap.set('n', '<C-k>', '<cmd>cnext<CR>zz')
 vim.keymap.set('n', '<C-j>', '<cmd>cprev<CR>zz')
-vim.keymap.set('n', '<leader>k', '<cmd>lnext<CR>zz')
-vim.keymap.set('n', '<leader>j', '<cmd>lprev<CR>zz')
 vim.keymap.set({ 'n', 'i', 'v' }, '<C-s>', '<ESC><cmd> w <cr>')
 vim.keymap.set({ 'n', 'v' }, '<leader>qq', '<cmd> qa! <cr>')
 vim.keymap.set({ 'n', 'v' }, '<C-c>', '<ESC><ESC><ESC>')
@@ -102,7 +98,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 require('lazy').setup({
   'tpope/vim-sleuth',
-  { 'numToStr/Comment.nvim', opts = {} },
   {
     'lewis6991/gitsigns.nvim',
     opts = {
@@ -442,7 +437,11 @@ require('lazy').setup({
     config = function()
       require('mini.ai').setup { n_lines = 500 }
       require('mini.surround').setup()
+      require('mini.comment').setup()
       require('mini.bufremove').setup()
+      require('mini.pairs').setup()
+      require('mini.notify').setup()
+      require('mini.move').setup()
     end,
   },
   { 'mbbill/undotree' },
@@ -451,16 +450,6 @@ require('lazy').setup({
     config = function()
       vim.keymap.set('n', '<leader>o', '<cmd>Outline<CR>', { desc = 'Toggle Outline' })
       require('outline').setup {}
-    end,
-  },
-  {
-    'windwp/nvim-autopairs',
-    dependencies = { 'hrsh7th/nvim-cmp' },
-    config = function()
-      require('nvim-autopairs').setup {}
-      local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
-      local cmp = require 'cmp'
-      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
     end,
   },
   {
@@ -488,7 +477,7 @@ require('lazy').setup({
     opts = {},
     version = '^1.0.0',
   },
-  { 'LudoPinelli/comment-box.nvim' },
+  { 'DDTully/comment-box.nvim' },
 }, {
   ui = {
     icons = vim.g.have_nerd_font and {} or {
