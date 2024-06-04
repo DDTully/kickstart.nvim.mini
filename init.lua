@@ -46,6 +46,7 @@ vim.keymap.set('n', '<leader>tw', '<cmd>set wrap!<cr>')
 vim.keymap.set('n', '<leader>tn', '<cmd>set relativenumber!<cr>')
 vim.keymap.set('n', '<leader>tc', '<cmd>Telescope colorscheme<cr>')
 vim.keymap.set('n', '<leader>ts', '<cmd>set spell!<cr>')
+vim.keymap.set('n', '<leader>tr', '<cmd>lua MiniTrailspace.trim()<cr>')
 vim.keymap.set('n', '<A-m>', '<cmd>MarkdownPreview<cr>')
 vim.keymap.set('n', '<space>fb', ':Telescope file_browser path=%:p:h select_buffer=true<CR>', { silent = true })
 vim.keymap.set({ 'n', 'v' }, '<leader>cb', '<cmd>CBccbox<cr>') -- Box
@@ -256,7 +257,7 @@ require('lazy').setup({
         powershell_es = {
           filetypes = { 'ps1', 'psm1', 'psd1' },
           bundle_path = vim.fn.stdpath 'data' .. '/mason/packages/powershell-editor-services',
-          settings = { powershell = { codeFormatting = { Preset = 'OTBS' } } },
+          settings = { powershell = { codeFormatting = { Preset = 'OTBS', UseCorrectCasing = 'true' } } },
           init_options = {
             enableProfileLoading = false,
           },
@@ -442,6 +443,7 @@ require('lazy').setup({
       require('mini.pairs').setup()
       require('mini.notify').setup()
       require('mini.move').setup()
+      require('mini.trailspace').setup()
     end,
   },
   { 'mbbill/undotree' },
